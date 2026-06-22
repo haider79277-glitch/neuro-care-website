@@ -31,7 +31,7 @@ section{
 }
 
 h2{color:#0b6aa2}
-h3{color:#333;margin-bottom:5px}
+h3{color:#333}
 
 .btn{
   display:inline-block;
@@ -40,6 +40,8 @@ h3{color:#333;margin-bottom:5px}
   padding:12px 18px;
   text-decoration:none;
   border-radius:8px;
+  margin:5px 5px 5px 0;
+  cursor:pointer;
 }
 
 footer{
@@ -48,12 +50,7 @@ footer{
   padding:15px;
 }
 
-img{
-  width:100%;
-  max-width:400px;
-  border-radius:10px;
-  margin:10px 0;
-}
+ul{line-height:1.8}
 </style>
 
 </head>
@@ -64,14 +61,26 @@ img{
 <h1>Neuro Care Diagnostics</h1>
 </header>
 
+<!-- DOCTOR INFO + OPD -->
 <section>
 <h2>Doctor Information</h2>
-<p><b>Dr. Monika Kumari – Neurologist</b></p>
-<p>EEG Technician: Noor Ahmed | Home Services Available</p>
+
+<p><b>Dr. Monika Kumari – Consultant Neurologist</b></p>
+<p>EEG Technician: Noor Ahmed | Home Services Free Available</p>
+
+<br>
+
+<h3>OPD Days</h3>
+<ul>
+  <li>Monday</li>
+  <li>Wednesday</li>
+  <li>Thursday</li>
+  <li>Saturday</li>
+</ul>
 </section>
 
+<!-- SPECIALITY -->
 <section>
-
 <h2>Doctor Speciality</h2>
 <ul>
 <li>Neurologist Specialist</li>
@@ -81,11 +90,10 @@ img{
 <li>Stroke Care & Rehabilitation</li>
 <li>EEG & Diagnostic Expert</li>
 </ul>
-
 </section>
 
+<!-- SERVICES -->
 <section>
-
 <h2>Our Services</h2>
 <ul>
 <li>Neurology Consultation</li>
@@ -95,54 +103,58 @@ img{
 <li>Affordable Charges</li>
 <li>Free Ambulance Service (All Karachi)</li>
 </ul>
-
 </section>
 
+<!-- TREATMENT -->
 <section>
-
 <h2>Specialized Treatment</h2>
 
 <h3>Muscular Pain</h3>
-<img src="muscular-pain.jpg">
 <p>Muscle pain treatment and relief care</p>
 
 <h3>Back Pain</h3>
-<img src="back-pain.jpg">
 <p>Spine and lower back pain treatment</p>
 
 <h3>Neck Pain</h3>
-<img src="neck-pain.jpg">
 <p>Cervical pain and stiffness treatment</p>
 
-<h3>Swelling in Knees</h3>
-<img src="knee-pain.jpg">
+<h3>Knee Swelling</h3>
 <p>Knee inflammation and joint care</p>
 
 <h3>Ankle Sprain</h3>
-<img src="ankle-sprain.jpg">
 <p>Ligament injury treatment and recovery</p>
 
 <h3>Frozen Shoulder</h3>
-<img src="frozen-shoulder.jpg">
 <p>Shoulder stiffness and mobility treatment</p>
-
 </section>
 
+<!-- APPOINTMENT -->
 <section>
-
 <h2>Book Appointment</h2>
 
 <form onsubmit="sendWhatsApp(event)">
-  <input id="name" type="text" placeholder="Your Name" required
-  style="width:100%;padding:10px;margin:5px 0;border-radius:6px;border:1px solid #ccc;">
 
-  <input id="date" type="date" required
-  style="width:100%;padding:10px;margin:5px 0;border-radius:6px;border:1px solid #ccc;">
+<input id="name" type="text" placeholder="Your Name" required
+style="width:100%;padding:10px;margin:5px 0;border-radius:6px;border:1px solid #ccc;">
 
-  <textarea id="message" rows="4" placeholder="Your Problem / Message"
-  style="width:100%;padding:10px;margin:5px 0;border-radius:6px;border:1px solid #ccc;"></textarea>
+<input id="date" type="date" required
+style="width:100%;padding:10px;margin:5px 0;border-radius:6px;border:1px solid #ccc;">
 
-  <button type="submit" class="btn">Send on WhatsApp</button>
+<textarea id="message" rows="4" placeholder="Your Problem / Message"
+style="width:100%;padding:10px;margin:5px 0;border-radius:6px;border:1px solid #ccc;"></textarea>
+
+<br>
+
+<h3>Select Appointment Type</h3>
+
+<button type="button" class="btn" onclick="setType('Doctor OPD')">Doctor OPD</button>
+<button type="button" class="btn" onclick="setType('EEG Test')">EEG Test</button>
+<button type="button" class="btn" onclick="setType('Lab Test')">Lab Test</button>
+
+<br><br>
+
+<button type="submit" class="btn">Send on WhatsApp</button>
+
 </form>
 
 <br>
@@ -150,14 +162,22 @@ img{
 <a class="btn" href="https://wa.me/923186998965" target="_blank">
 Book Direct on WhatsApp
 </a>
-
 </section>
 
+<!-- FOOTER -->
 <footer>
 © 2026 Neuro Care Diagnostics | Quality Care • Trusted Diagnosis
 </footer>
 
 <script>
+
+let appointmentType = "";
+
+function setType(type){
+  appointmentType = type;
+  alert("Selected: " + type);
+}
+
 function sendWhatsApp(event){
   event.preventDefault();
 
@@ -168,12 +188,15 @@ function sendWhatsApp(event){
   let phone = "923186998965";
 
   let url = "https://wa.me/" + phone +
-    "?text=Appointment Request%0AName: " + name +
-    "%0ADate: " + date +
-    "%0AMessage: " + message;
+    "?text=Appointment Request%0A" +
+    "Type: " + appointmentType + "%0A" +
+    "Name: " + name + "%0A" +
+    "Date: " + date + "%0A" +
+    "Message: " + message;
 
   window.open(url, "_blank");
 }
+
 </script>
 
 </body>

@@ -34,8 +34,9 @@ input,textarea{box-sizing:border-box}
 <li>Neurology Consultation</li>
 <li>MRI</li>
 <li>Blood Tests</li>
+<li>EEG Home Services Available</li>
 <li>Diagnostic Services</li>
-<li>Affordable Rates</li>
+<li>Affordable Charges</li>
 <li>Free Ambulance Service (All Karachi)</li>
 </ul>
 
@@ -85,11 +86,9 @@ function sendWhatsApp(event){
   let phone = "923186998965";
 
   let url = "https://wa.me/" + phone +
-    "?text=" +
-    "Appointment Request%0A" +
-    "Name: " + name + "%0A" +
-    "Date: " + date + "%0A" +
-    "Message: " + message;
+    "?text=Appointment Request%0AName: " + name +
+    "%0ADate: " + date +
+    "%0AMessage: " + message;
 
   window.open(url, "_blank");
 }

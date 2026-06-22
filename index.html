@@ -1,1 +1,99 @@
 
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Neuro Care Diagnostics</title>
+
+<style>
+body{font-family:Arial;margin:0;background:#f4f8fb;color:#222}
+header{background:#0b6aa2;color:#fff;padding:30px;text-align:center}
+section{max-width:900px;margin:20px auto;background:#fff;padding:20px;border-radius:10px}
+.btn{display:inline-block;background:#0b6aa2;color:#fff;padding:12px 18px;text-decoration:none;border-radius:8px}
+footer{background:#eee;text-align:center;padding:15px}
+input,textarea{box-sizing:border-box}
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Neuro Care Diagnostics</h1>
+<p>Dr. Monika Kumari – Neurologist</p>
+</header>
+
+<section>
+
+<h2>Online Consultation</h2>
+<p>Consult with our neurologist from the comfort of your home.</p>
+
+<h2>Our Services</h2>
+<ul>
+<li>Neurology Consultation</li>
+<li>MRI</li>
+<li>Blood Tests</li>
+<li>EEG Home Services Available</li>
+<li>Diagnostic Services</li>
+<li>Affordable Charges</li>
+<li>Free Ambulance Service (All Karachi)</li>
+</ul>
+
+<h2>Book Appointment</h2>
+
+<form onsubmit="sendWhatsApp(event)">
+  <p>
+    <input id="name" type="text" placeholder="Your Name" required 
+    style="width:100%;padding:10px;margin:5px 0;border-radius:6px;border:1px solid #ccc;">
+  </p>
+
+  <p>
+    <input id="date" type="date" required 
+    style="width:100%;padding:10px;margin:5px 0;border-radius:6px;border:1px solid #ccc;">
+  </p>
+
+  <p>
+    <textarea id="message" placeholder="Your Problem / Message" rows="4" 
+    style="width:100%;padding:10px;margin:5px 0;border-radius:6px;border:1px solid #ccc;"></textarea>
+  </p>
+
+  <p>
+    <button type="submit" class="btn">Send on WhatsApp</button>
+  </p>
+</form>
+
+<p>
+<a class="btn" href="https://wa.me/923186998965" target="_blank">
+Book Direct on WhatsApp
+</a>
+</p>
+
+</section>
+
+<footer>
+© Neuro Care Diagnostics
+</footer>
+
+<script>
+function sendWhatsApp(event){
+  event.preventDefault();
+
+  let name = document.getElementById("name").value;
+  let date = document.getElementById("date").value;
+  let message = document.getElementById("message").value;
+
+  let phone = "923186998965";
+
+  let url = "https://wa.me/" + phone +
+    "?text=Appointment Request%0AName: " + name +
+    "%0ADate: " + date +
+    "%0AMessage: " + message;
+
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
